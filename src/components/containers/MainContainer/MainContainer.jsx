@@ -1,24 +1,97 @@
+import { useEffect, useState } from "react";
 import { GifContainer } from "../GifContainer/GifContainer"
 
 export const MainContainer = () => {
 
-  const gifs = [
-    {
-      title: "Hamburguesa",
-      url: "https://media.giphy.com/media/A9XJR7LtgVsmA99ij1/giphy.gif"
-    }, 
-    {
-      title: "Animal",
-      url: "https://media.giphy.com/media/2s5AkMqz68euLmWqhb/giphy.gif"
-    },
-    {
-      title: "Cocina",
-      url: "https://media.giphy.com/media/BDSZj7aLlvE7MXa90V/giphy.gif"
+  const [gifs, setGifs] = useState([])
+  const [trendingGifs, setTrendingGifs] = useState([])
+  const [classicGifs, setClassicGifs] = useState([])
+
+  useEffect(() => {
+    async function getGifs() { 
+
+      try {
+        const response = await fetch('http://localhost:8080/gifs', 
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json()
+        setGifs(data)
+    
+      }catch (error) {
+        console.log(error)
+      }
+
     }
-  ]
+    getGifs() 
+  }, [])
+
+  useEffect(() => {
+    async function getGifs() { 
+
+      try {
+        const response = await fetch('http://localhost:8080/gifs/trending', 
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json()
+        setTrendingGifs(data.slice(0,5))
+    
+      }catch (error) {
+        console.log(error)
+      }
+
+    }
+    getGifs() 
+  }, [])
+  useEffect(() => {
+    async function getGifs() { 
+
+      try {
+        const response = await fetch('http://localhost:8080/gifs/classic', 
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json()
+        setClassicGifs(data.slice(0,5))
+    
+      }catch (error) {
+        console.log(error)
+      }
+
+    }
+    getGifs() 
+  }, [])
+  
   return (
     <div className="flex flex-col min-h-screen pt-60 px-20 bg-[#DDE6ED]">
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
+      {
+        trendingGifs ? 
+        <GifContainer title="Trending" gifs={trendingGifs} />
+        :
+        <h2>loading...</h2>
+      }
+      {
+        classicGifs ? 
+        <GifContainer title="Classic" gifs={classicGifs} />
+        :
+        <h2>loading...</h2>
+      }
+      {
+        gifs ? 
+        <GifContainer title="General" gifs={gifs} />
+        :
+        <h2>loading...</h2>
+      }
         {/* <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
         <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
         <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
