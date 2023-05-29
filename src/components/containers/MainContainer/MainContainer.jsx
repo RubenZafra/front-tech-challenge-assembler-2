@@ -44,7 +44,7 @@ export const MainContainer = () => {
           }
         });
         const data = await response.json()
-        setTrendingGifs(data.slice(0,5))
+        setTrendingGifs(data.slice(0,6))
     
       }catch (error) {
         console.log(error)
@@ -66,7 +66,7 @@ export const MainContainer = () => {
           }
         });
         const data = await response.json()
-        setClassicGifs(data.slice(0,5))
+        setClassicGifs(data.slice(0,6))
     
       }catch (error) {
         console.log(error)
@@ -88,7 +88,7 @@ export const MainContainer = () => {
           }
         });
         const data = await response.json()
-        setUserGifs(data.slice(0,5))
+        setUserGifs(data.slice(0,6))
     
       }catch (error) {
         console.log(error)
@@ -102,9 +102,9 @@ export const MainContainer = () => {
     <div className="flex flex-col min-h-screen pt-60 px-20 bg-[#DDE6ED]">
       <div >
         <ul className="flex flex-row justify-center gap-6">
-          <li onClick={()=>setFilteredGifs([])} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg">Home</li>
-          <li onClick={()=>setFilteredGifs(trendingGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg">Trending</li>
-          <li onClick={()=>setFilteredGifs(classicGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg">Classic</li>
+          <li onClick={()=>setFilteredGifs([])} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg text-[#27374D]">Home</li>
+          <li onClick={()=>setFilteredGifs(trendingGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg text-[#27374D]">Trending</li>
+          <li onClick={()=>setFilteredGifs(classicGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg text-[#27374D]">Classic</li>
         </ul>
       </div>
       {

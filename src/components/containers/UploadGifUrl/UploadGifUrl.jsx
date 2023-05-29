@@ -1,5 +1,8 @@
 import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
+import { NavBar } from '../NavBar/NavBar'
+import { Footer } from '../../common/Footer/Footer'
+import { AwesomeButton } from 'react-awesome-button'
 
 export const UploadGifUrl = () => {
 
@@ -33,14 +36,23 @@ export const UploadGifUrl = () => {
  
 
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-[#DDE6ED] h-screen pt-60">
-        <h1>Upload Gif</h1>
-        <form ref={formRef} onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder="Title" className="form-group w-full h-12 rounded-lg p-4 text-sm outline-none" {...register("title")}/>
-            <input type="text" placeholder="Description" className="form-group w-full h-12 rounded-lg p-4 text-sm outline-none" {...register("description")}/>
-            <input type="text" placeholder="Url" className="form-group w-full h-12 rounded-lg p-4 text-sm outline-none" {...register("url")}/>
-            <button type="submit" className="w-full h-12 rounded-lg p-4 text-sm outline-none">Save Gif</button>
-        </form> 
-    </div>
+    <>  
+        <NavBar />
+        <div className="flex flex-col items-center justify-center w-full bg-[#DDE6ED] h-screen pt-60">
+            <h1 className='text-5xl  font-bold text-center mb-6'>Upload Gif</h1>
+            <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center justify-center w-1/3'>
+                <input type="text" placeholder="Title" className="form-group w-full h-12 rounded-lg p-4 text-sm outline-none mb-6" {...register("title")}/>
+                <input type="text" placeholder="Description" className="form-group w-full h-12 rounded-lg p-4 text-sm outline-none mb-6" {...register("description")}/>
+                <input type="text" placeholder="Url" className="form-group w-full h-12 rounded-lg p-4 text-sm outline-none" {...register("url")}/>
+                <button type="submit">
+                    <AwesomeButton className='text-xl mt-6'>
+
+                    Save Gif
+                    </AwesomeButton>
+                </button>
+            </form> 
+        </div>
+        <Footer />
+    </>
   )
 }
