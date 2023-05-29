@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 import { BsHeart } from "react-icons/bs"
 import { ImLink } from "react-icons/im"

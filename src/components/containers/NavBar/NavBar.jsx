@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import {GiFangsCircle} from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 
 
 export const NavBar = () => {
@@ -19,7 +20,7 @@ export const NavBar = () => {
           <h1 className='text-white font-bold text-2xl'>GIF-MASTER 🍥</h1>
           <div className='flex justify-between p-4'>
             <div className='pr-32'>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Upload Gif</button>
+              <Link to='/upload' className="bg-blue-500 text-white px-4 py-2 rounded-md">Upload Gif</Link>
             </div>
             <div>
               <button 

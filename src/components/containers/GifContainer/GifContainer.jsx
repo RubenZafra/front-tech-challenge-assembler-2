@@ -1,9 +1,7 @@
+/* eslint-disable react/prop-types */
 import { GifCard } from "../../common/GifCard/GifCard"
 
 export const GifContainer = ({title, gifs}) => {
-
-  // console.log(gifs)
-
 
   return (
     <div className="flex flex-col px-64 py-12">
