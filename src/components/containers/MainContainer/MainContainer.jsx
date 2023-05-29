@@ -6,6 +6,7 @@ export const MainContainer = () => {
   const [gifs, setGifs] = useState([])
   const [trendingGifs, setTrendingGifs] = useState([])
   const [classicGifs, setClassicGifs] = useState([])
+  const [userGifs, setUserGifs] = useState([])
 
   useEffect(() => {
     async function getGifs() { 
@@ -50,6 +51,7 @@ export const MainContainer = () => {
     }
     getGifs() 
   }, [])
+
   useEffect(() => {
     async function getGifs() { 
 
@@ -71,9 +73,37 @@ export const MainContainer = () => {
     }
     getGifs() 
   }, [])
+
+  useEffect(() => {
+    async function getGifs() { 
+
+      try {
+        const response = await fetch('http://localhost:8080/gifs/user', 
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json()
+        setUserGifs(data.slice(0,5))
+    
+      }catch (error) {
+        console.log(error)
+      }
+
+    }
+    getGifs() 
+  }, [])
   
   return (
     <div className="flex flex-col min-h-screen pt-60 px-20 bg-[#DDE6ED]">
+      {
+        userGifs ? 
+        <GifContainer title="Trending" gifs={userGifs} />
+        :
+        <h2>loading...</h2>
+      }
       {
         trendingGifs ? 
         <GifContainer title="Trending" gifs={trendingGifs} />
@@ -92,14 +122,6 @@ export const MainContainer = () => {
         :
         <h2>loading...</h2>
       }
-        {/* <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} />
-        <GifContainer title="Gifs de hamburguesas" gifs={gifs} /> */}
         
         
     </div>

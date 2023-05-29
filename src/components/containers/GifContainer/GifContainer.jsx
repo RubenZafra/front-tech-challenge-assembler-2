@@ -9,7 +9,7 @@ export const GifContainer = ({title, gifs}) => {
         <div className="flex flex-wrap justify-start items-center gap-4 ">
             {
                 gifs ? gifs.map(gif => (
-                    <GifCard key={gif._id} gif={gif.url} />
+                    <GifCard key={gif._id} gif={gif.url}/>
                 )
                 ) : <p>Loading...</p>
             }

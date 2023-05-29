@@ -5,6 +5,7 @@ import { ImLink } from "react-icons/im"
        
        
 export const GifCard = ({gif}) => {
+    
     return (
         <div>
             <div className="max-h-content 
@@ -30,7 +31,10 @@ export const GifCard = ({gif}) => {
                     </button>
                     <Link to={`/main`} className="w-8 h-12 flex justify-center
                     items-center text-primary drop-shadow-xl">
-                    <ImLink className="text-xl hover:scale-105 transition duration-300" />
+                    <ImLink
+                        className="text-xl hover:scale-105 transition duration-300" 
+                        onClick={() => {navigator.clipboard.writeText(gif)}}
+                    />
                     </Link>
                 </div>
             </div>
