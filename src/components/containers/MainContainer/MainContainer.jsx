@@ -8,6 +8,8 @@ export const MainContainer = () => {
   const [classicGifs, setClassicGifs] = useState([])
   const [userGifs, setUserGifs] = useState([])
 
+  const [filteredGifs, setFilteredGifs] = useState([])
+
   useEffect(() => {
     async function getGifs() { 
 
@@ -98,29 +100,37 @@ export const MainContainer = () => {
   
   return (
     <div className="flex flex-col min-h-screen pt-60 px-20 bg-[#DDE6ED]">
+      <div >
+        <ul className="flex flex-row justify-center gap-6">
+          <li onClick={()=>setFilteredGifs([])} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg">Home</li>
+          <li onClick={()=>setFilteredGifs(trendingGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg">Trending</li>
+          <li onClick={()=>setFilteredGifs(classicGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg">Classic</li>
+        </ul>
+      </div>
       {
-        userGifs ? 
+        filteredGifs.length > 0 &&
+        <GifContainer title="Search Results" gifs={filteredGifs} />
+      }
+      
+      {
+        userGifs && filteredGifs.length === 0 && 
         <GifContainer title="Uploaded By User" gifs={userGifs} />
-        :
-        <h2>loading...</h2>
+
       }
       {
-        trendingGifs ? 
+        trendingGifs && filteredGifs.length === 0 && 
         <GifContainer title="Trending" gifs={trendingGifs} />
-        :
-        <h2>loading...</h2>
+
       }
       {
-        classicGifs ? 
+        classicGifs && filteredGifs.length === 0 && 
         <GifContainer title="Classic" gifs={classicGifs} />
-        :
-        <h2>loading...</h2>
+
       }
       {
-        gifs ? 
+        gifs && filteredGifs.length === 0 &&
         <GifContainer title="General" gifs={gifs} />
-        :
-        <h2>loading...</h2>
+
       }
         
         

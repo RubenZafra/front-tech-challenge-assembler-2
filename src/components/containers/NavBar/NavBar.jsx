@@ -19,7 +19,7 @@ export const NavBar = () => {
     <>
         <div className={`flex justify-between items-center ${isActive ? 'bg-[#27374D] py-6' : 'bg-[#526D82] py-2'} fixed z-20 w-full px-4 transition-all duration-500 ease-in-out h-26`}>
           <GiFangsCircle className='text-5xl ml-4 text-white'/>
-          <h1 className='text-white font-bold text-5xl'>GIF-MASTER 🍥</h1>
+          <h1 className='text-white font-bold text-5xl ml-52'>GIF-MASTER 🍥</h1>
           <div className='flex justify-between p-4'>
             <div className='pr-32'>
               <Link className='appearance-none' to='/upload'>
