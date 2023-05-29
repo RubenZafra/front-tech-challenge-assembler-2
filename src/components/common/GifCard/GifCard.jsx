@@ -29,8 +29,8 @@ export const GifCard = ({gif}) => {
                         transition duration-300"/>
                     </div>
                     </button>
-                    <Link to={`/main`} className="w-8 h-12 flex justify-center
-                    items-center text-primary drop-shadow-xl">
+                    <Link to={`/main`} className="w-8 h-8 flex justify-center
+                    items-center text-primary drop-shadow-xl bg-white rounded-full">
                     <ImLink
                         className="text-xl hover:scale-105 transition duration-300" 
                         onClick={() => {navigator.clipboard.writeText(gif)}}

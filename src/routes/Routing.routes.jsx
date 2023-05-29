@@ -13,9 +13,8 @@ export const Routing = () => {
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
         <Route path="/upload" element={<UploadGif />} />
-          <Route path="/upload/url" element={<UploadGifUrl />} />
-          <Route path="/upload/file" element={<UploadGifFile />} />
-
+        <Route path="/upload/url" element={<UploadGifUrl />} />
+        <Route path="/upload/file" element={<UploadGifFile />} />
       </Routes>
     </BrowserRouter>
   )

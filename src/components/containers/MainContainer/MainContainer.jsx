@@ -100,7 +100,7 @@ export const MainContainer = () => {
     <div className="flex flex-col min-h-screen pt-60 px-20 bg-[#DDE6ED]">
       {
         userGifs ? 
-        <GifContainer title="Trending" gifs={userGifs} />
+        <GifContainer title="Uploaded By User" gifs={userGifs} />
         :
         <h2>loading...</h2>
       }

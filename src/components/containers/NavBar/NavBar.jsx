@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { AwesomeButton } from 'react-awesome-button'
+import 'react-awesome-button/dist/styles.css';
 import {GiFangsCircle} from 'react-icons/gi'
 import { Link } from 'react-router-dom'
-
+import { FiLogOut, FiUpload } from 'react-icons/fi'
 
 export const NavBar = () => {
 
@@ -17,19 +19,19 @@ export const NavBar = () => {
     <>
         <div className={`flex justify-between items-center ${isActive ? 'bg-[#27374D] py-6' : 'bg-[#526D82] py-2'} fixed z-20 w-full px-4 transition-all duration-500 ease-in-out h-26`}>
           <GiFangsCircle className='text-5xl ml-4 text-white'/>
-          <h1 className='text-white font-bold text-2xl'>GIF-MASTER 🍥</h1>
+          <h1 className='text-white font-bold text-5xl'>GIF-MASTER 🍥</h1>
           <div className='flex justify-between p-4'>
             <div className='pr-32'>
-              <Link to='/upload' className="bg-blue-500 text-white px-4 py-2 rounded-md">Upload Gif</Link>
+              <Link className='appearance-none' to='/upload'>
+                <AwesomeButton className='text-lg' type='primary' before={<FiUpload />} size='medium' >
+                    Upload
+                </AwesomeButton>
+              </Link>
             </div>
             <div>
-              <button 
-                className="bg-blue-500 text-white px-4 ml-4 py-2 rounded-md"
-                
-                >
-                  Login
-              </button>
-              <button className="bg-red-500 text-white px-4 py-2 ml-4 rounded-md">Sign Up</button>
+              <Link className='appearance-none' to='/'>
+                <AwesomeButton className='text-lg font-bold' type='danger' before={<FiLogOut />} size='medium'>Logout</AwesomeButton>
+              </Link>
             </div>
           </div>
         </div>
