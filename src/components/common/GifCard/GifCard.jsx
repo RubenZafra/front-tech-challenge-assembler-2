@@ -1,3 +1,4 @@
+import { toast } from 'react-hot-toast'
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 import { BsHeart } from "react-icons/bs"
@@ -33,7 +34,10 @@ export const GifCard = ({gif}) => {
                     items-center text-primary drop-shadow-xl bg-white rounded-full">
                     <ImLink
                         className="text-xl hover:scale-105 transition duration-300" 
-                        onClick={() => {navigator.clipboard.writeText(gif)}}
+                        onClick={() => {
+                            navigator.clipboard.writeText(gif) 
+                            toast.success("Gif Copied to clipboard!")
+                       }}
                     />
                     </Link>
                 </div>

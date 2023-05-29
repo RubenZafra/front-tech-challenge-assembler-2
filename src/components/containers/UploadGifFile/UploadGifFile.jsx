@@ -4,6 +4,7 @@ import { AwesomeButton } from 'react-awesome-button'
 import { useForm } from 'react-hook-form'
 import { NavBar } from '../NavBar/NavBar'
 import { Footer } from '../../common/Footer/Footer'
+import { toast } from 'react-hot-toast'
 
 export const UploadGifFile = () => {
 
@@ -20,6 +21,7 @@ export const UploadGifFile = () => {
                 }
             })
             const data = response.data
+            toast.success("Gif Uploaded Successfully")
             console.log(data)
         
         }catch(error){
@@ -30,6 +32,7 @@ export const UploadGifFile = () => {
     const onSubmit = async (data) => {
 
         await uploadGif(data)
+        
         reset()
     }
  

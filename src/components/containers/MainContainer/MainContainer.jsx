@@ -102,9 +102,9 @@ export const MainContainer = () => {
     <div className="flex flex-col min-h-screen pt-60 px-20 bg-[#DDE6ED]">
       <div >
         <ul className="flex flex-row justify-center gap-6">
-          <li onClick={()=>setFilteredGifs([])} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg text-[#27374D]">Home</li>
-          <li onClick={()=>setFilteredGifs(trendingGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg text-[#27374D]">Trending</li>
-          <li onClick={()=>setFilteredGifs(classicGifs)} className="font-bold hover:underline text-xl cursor-pointer drop-shadow-lg text-[#27374D]">Classic</li>
+          <li onClick={()=>setFilteredGifs([])} className="font-bold hover:underline hover:text-sky-900 text-xl cursor-pointer drop-shadow-lg decoration-sky-500 text-[#27374D]">Home</li>
+          <li onClick={()=>setFilteredGifs(trendingGifs)} className="font-bold hover:underline hover:text-pink-900 text-xl cursor-pointer drop-shadow-lg decoration-pink-500 text-[#27374D]">Trending</li>
+          <li onClick={()=>setFilteredGifs(classicGifs)} className="font-bold hover:underline hover:text-indigo-900 text-xl cursor-pointer drop-shadow-lg decoration-indigo-500 text-[#27374D]">Classic</li>
         </ul>
       </div>
       {

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { NavBar } from '../NavBar/NavBar'
 import { Footer } from '../../common/Footer/Footer'
 import { AwesomeButton } from 'react-awesome-button'
+import { toast } from 'react-hot-toast'
 
 export const UploadGifUrl = () => {
 
@@ -21,6 +22,8 @@ export const UploadGifUrl = () => {
                 body: JSON.stringify(formData)
             })
             const data = await response.json()
+            toast.success("Gif Uploaded Successfully")
+
             console.log(data)
         
         }catch(error){
